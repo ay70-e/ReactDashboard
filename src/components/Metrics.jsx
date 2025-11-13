@@ -20,10 +20,14 @@ const Metrics = () => {
       {dashboardStats.slice(0, 4).map((stat, index) => (
       <div data-aos="zoom-in-down" data-aos-delay={index * 200}>
   <div
-    className={`rounded-2xl shadow-lg dark:shadow-2xl p-6 
-      transform transition-transform duration-300 hover:scale-105
-      ${theme === "dark" ? "bg-[#20293b]" : "bg-[#fffbff]"}`}
-  >
+      key={index}
+      data-aos="zoom-in-down"
+      data-aos-delay={index * 200}
+      className={`rounded-2xl shadow-lg dark:shadow-2xl p-6 
+        transform transition-transform duration-300 hover:scale-105
+        ${theme === "dark" ? "bg-[#20293b]" : "bg-[#fffbff]"}
+        flex flex-col justify-between h-full`} 
+    >
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-muted-foreground">

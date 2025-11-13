@@ -1,13 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Users, Settings, BarChart2, Bell, Cpu, Wifi, HeartPulse, HardDrive } from "lucide-react";
 import { dashboardStats, activities, systemHealth } from "../data/mockData";
 import { ThemeContext } from "../contexts/ThemeContext";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function DashboardPage() {
   const navigate = useNavigate();
   const { theme } = useContext(ThemeContext);
 
+  useEffect(() => {
+      AOS.init({
+        duration: 1000, 
+        once: false,   
+      });
+    }, []);
   const quickLinks = [
     { name: "Analytics", icon: <BarChart2 size={26} className="text-[#463cd1]" />, path: "/analytics" },
     { name: "Users", icon: <Users size={26} className="text-[#9a47c1]" />, path: "/users" },

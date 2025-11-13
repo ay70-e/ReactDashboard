@@ -7,18 +7,20 @@ export default function Navbar() {
   const [search, setSearch] = useState("");
 
   return (
-    <nav
-      className={`w-full flex items-center justify-between px-6 py-4 shadow-md  transition-colors ${
-        theme === "dark" ? "bg-[#141E30] " : "bg-[#ffedfe]  "
-      }`}
-    >
+  <nav
+  className={`w-full flex items-center justify-between px-6 py-4 shadow-md z-20 transition-colors ${
+    theme === "dark" ? "bg-[#141E30]" : "bg-[#ffedfe]"
+  }`}
+>
+
+
       {/* Left side */}
       <div className="flex items-center">
         <h1 className="text-xl font-bold text-[#e0b3f5]">Dashboard</h1>
         
       </div>
        {/* center */}
-      <div className="relative">
+      <div className="relative px-2">
           <input
             type="text"
             placeholder="Search..."

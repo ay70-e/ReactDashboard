@@ -34,7 +34,7 @@ export default function LoginPage() {
 
       if (remember) {
         // Save login info with expiry (30 days)
-        const expiry = new Date().getTime() + 30 * 24 * 60 * 60 * 1000; // 30 days
+        const expiry = new Date().getTime() +   30 * 24 * 60 * 60 * 1000; // 30
         localStorage.setItem(
           REMEMBER_KEY,
           JSON.stringify({ email, expiry })
