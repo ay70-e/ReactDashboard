@@ -48,7 +48,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#ffedfe]">
+    <div className="p-8 flex flex-col items-center justify-center bg-[#ffedfe]">
       <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-lg">
         <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h2>
         <p className="text-gray-600 mb-6">Sign in to your dashboard account</p>
