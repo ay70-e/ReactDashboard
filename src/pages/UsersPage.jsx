@@ -226,10 +226,10 @@ export default function UsersPage() {
 
       {/* Users List */}
       <div data-aos="zoom-in-down" className={`space-y-2 rounded-2xl shadow-lg dark:shadow-2xl p-6  ${theme === "dark" ? "bg-[#20293b]" : "bg-[#fffbff]"}`}>
-        <h1 className="font-medium">Users ({users.length})</h1>
+        <h1 className="font-medium">Users ({filteredUsers.length})</h1>
         <p className="text-gray-500 dark:text-gray-300 mt-1">Manage and view all system users</p>
 
-        {users.map(user => (
+        {filteredUsers.map(user => (
           <div key={user.id} className={`flex items-center justify-between p-4 border rounded-2xl ${theme === "dark" ? "hover:bg-[#20293b]" : "hover:bg-gray-100"} `}>
             {/* Left */}
             <div className="flex items-center gap-4">
