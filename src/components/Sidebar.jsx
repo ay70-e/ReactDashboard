@@ -31,7 +31,7 @@ export default function Sidebar() {
       className={`flex flex-col text-black transition-all duration-300 ${
         isOpen ? "w-64" : "w-16"
       }  
-       ${theme === "dark" ? "bg-purple-500" : "bg-[#e0b3f5]"}`}
+       ${theme === "dark" ? "bg-purple-400" : "bg-[#e0b3f5]"}`}
     >
       <div style={{
             boxShadow: theme === 'dark' 
