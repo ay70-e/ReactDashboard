@@ -1,18 +1,18 @@
 // components/Sidebar.jsx
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { ThemeContext } from "../contexts/ThemeContext";
 import { Home, Users, Settings, Cpu, User, Bell, LogOut, BarChart2 } from "lucide-react";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
-  const REMEMBER_KEY = "rememberedUser"; // المفتاح المستخدم في LoginPage
+  const REMEMBER_KEY = "rememberedUser"; 
 
   const handleLogout = () => {
-    // حذف بيانات المستخدم من التخزين المحلي
     localStorage.removeItem(REMEMBER_KEY);
-    // إعادة التوجيه إلى صفحة تسجيل الدخول
     navigate("/login");
   };
 
@@ -30,9 +30,15 @@ export default function Sidebar() {
     <aside
       className={`flex flex-col text-black transition-all duration-300 ${
         isOpen ? "w-64" : "w-16"
-      } bg-[#e0b3f5] shadow-lg`}
+      }  
+       ${theme === "dark" ? "bg-purple-500" : "bg-[#e0b3f5]"}`}
     >
-      <div className="flex items-center justify-between p-3 shadow-md">
+      <div style={{
+            boxShadow: theme === 'dark' 
+              ? ' 0 2px 4px rgba(0,0,0,0.3)' 
+              : ' 0 2px 6px rgba(150, 100, 200, 0.35)'
+          }} 
+          className="flex items-center justify-between p-3 shadow-md">
         <span
           className={`font-bold text-xl text-black ${
             isOpen ? "block" : "hidden"
@@ -49,18 +55,34 @@ export default function Sidebar() {
         </button>
       </div>
 
-      <nav className="flex-1 mt-4 text-foreground">
+      <nav className="flex-1 p-[0_0_0_10px] mt-4 text-foreground">
         {pages.map((page) => (
           <NavLink
             key={page.name}
             to={page.path}
-            className={({ isActive }) =>
-              `flex items-center ${
-                isOpen ? "gap-3 px-4 py-3" : "justify-center px-2 py-3"
-              } hover:bg-[#ffedfe] dark:hover:bg-pink-900/30 transition ${
-                isActive ? "bg-[#ffedfe] dark:bg-pink-800/40 font-semibold" : ""
-              }`
-            }
+            
+className={({ isActive }) =>
+  `flex items-center ${
+    isOpen ? "gap-3 px-4 py-3" : "justify-center px-2 py-3"
+  }
+
+  transition
+
+  ${
+    isActive
+      ? theme === "dark"
+        ? "bg-[#141E30] text-white rounded-l-full shadow-[inset_4px_0_8px_rgba(0,0,0,0.6)]"
+        : "bg-[#ffedfe] text-black rounded-l-full shadow-[inset_4px_0_8px_rgba(255,105,180,0.25)]"
+      : ""
+  }
+
+  ${theme === "dark" ? "text-black" : "text-black"}
+  `
+}
+
+
+
+
           >
             {page.icon}
             {isOpen && <span>{page.name}</span>}
@@ -68,7 +90,6 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      {/* زر تسجيل الخروج */}
       <button
         onClick={handleLogout}
         className={`flex items-center w-full ${

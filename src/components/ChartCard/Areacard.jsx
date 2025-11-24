@@ -143,15 +143,15 @@ export default function AreaCard({ chartId = "1" }) {
           style={{
             boxShadow: theme === 'dark' 
               ? 'inset 0 2px 4px rgba(0,0,0,0.6)' 
-              : 'inset 0 2px 4px rgba(0,0,0,0.2)'
+              : 'inset 0 2px 6px rgba(0,0,0,0.08)'
           }}
-          className={`px-3 py-1 rounded-md flex items-center space-x-2 
+          className={` rounded-md flex items-center space-x-2  w-8 h-8 p-1  justify-center
             ${theme === 'dark' ? 'bg-rgba(255, 255, 255, 0.8) ' : 'bg-rgba(255, 255, 255, 0.05) '}`}
         >
           <img 
             src="https://cdn-icons-png.flaticon.com/128/12797/12797892.png" 
             alt="refresh" 
-            className="w-4 h-4"
+             className="w-full h-full object-contain"
           />
         </button>
 
@@ -161,21 +161,21 @@ export default function AreaCard({ chartId = "1" }) {
           style={{
             boxShadow: theme === 'dark' 
               ? 'inset 0 2px 4px rgba(0,0,0,0.6)' 
-              : 'inset 0 2px 4px rgba(0,0,0,0.2)'
+              : 'inset 0 2px 6px rgba(0,0,0,0.08)'
           }}
-          className={`px-3 py-1 rounded-md flex items-center space-x-2 
+          className={` rounded-md flex items-center space-x-2  w-8 h-8 p-1  justify-center
             ${theme === 'dark' ? 'bg-rgba(255, 255, 255, 0.8) ' : 'bg-rgba(255, 255, 255, 0.05) '}`}
         >
         <img 
           src="https://cdn-icons-png.flaticon.com/128/15604/15604130.png" 
           alt="download icon" 
-          className="w-4 h-4"
+          className="w-full h-full object-contain"
         />
       </button>
         </div>
       </div>
 
-      <div style={{ height: '300px' }}>
+      <div style={{ height: '80%' }}>
         <Line ref={chartRef} data={chartData} options={options} />
       </div>
     </div>

@@ -125,29 +125,37 @@ export default function UsersPage() {
           <p className="text-gray-500 dark:text-gray-300 mt-1">Manage system users and their permissions</p>
         </div>
         <div className="flex gap-2">
-          <button
+          <button style={{
+            boxShadow: theme === 'dark' 
+              ? 'inset 0 2px 4px rgba(0,0,0,0.6)' 
+              : 'inset 0 2px 4px rgba(255, 105, 180, 0.25)'
+          }}
             onClick={handleExport}
-            className={`flex items-center gap-1 px-3 py-1 border rounded-lg cursor-pointer ${
-              theme === "dark" ? "hover:bg-[#20293b]" : "bg-[#fffbff]"
-            }`}
+            className={`flex items-center gap-1 px-3 py-1  rounded-lg cursor-pointer `}
           >
             <Download className="w-4 h-4" /> Export
           </button>
 
-          <label
-            className={`flex items-center gap-1 px-3 py-1 border rounded-lg cursor-pointer ${
-              theme === "dark" ? "hover:bg-[#20293b]" : "bg-[#fffbff]"
-            }`}
+          <label style={{
+            boxShadow: theme === 'dark' 
+              ? 'inset 0 2px 4px rgba(0,0,0,0.6)' 
+              : 'inset 0 2px 4px rgba(255, 105, 180, 0.25)'
+          }}
+            className={`flex items-center gap-1 px-3 py-1  rounded-lg cursor-pointer 
+  `}
           >
             <Upload className="w-4 h-4" /> Import
             <input type="file" accept=".csv" className="hidden" />
           </label>
 
           <button
-            onClick={() => setShowAddForm(true)}
-            className={`flex items-center gap-1 px-3 py-1 border rounded-lg cursor-pointer ${
-              theme === "dark" ? "hover:bg-[#20293b]" : "bg-[#fffbff]"
-            }`}
+            onClick={() => setShowAddForm(true)} 
+             style={{
+            boxShadow: theme === 'dark' 
+              ? 'inset 0 2px 4px rgba(0,0,0,0.6)' 
+              : 'inset 0 2px 4px rgba(255, 105, 180, 0.25)'
+          }}
+            className={`flex items-center gap-1 px-3 py-1  rounded-lg cursor-pointer `}
           >
             <UserPlus className="w-4 h-4" /> Add User
           </button>

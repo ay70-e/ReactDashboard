@@ -72,11 +72,13 @@ datasets: [
         borderWidth: 1,
         cornerRadius: 6,
         padding: 10,
+             
       },
+
     },
     scales: {
       y: { beginAtZero: true },
-      x: { beginAtZero: true },
+      x: { beginAtZero: true  },
     },
     
   }), [theme]);
@@ -104,66 +106,80 @@ datasets: [
   };
 
   return (
-    <div className={`w-full max-w-[500px] h-full max-h-[400px] backdrop-blur-sm p-6 rounded-2xl ${theme === 'dark' ? 'shadow-2xl' : 'shadow-lg'}`}
-      style={{ backgroundColor: theme === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.8)' }}>
-      
-      {/* Title + Buttons row */}
-      <div className="flex justify-between items-center mb-4">
-        <div>
-          <h2 className={`text-lg font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
-            {chartInfo?.title}
-          </h2>
-          <p className={`text-sm ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-            {chartInfo?.description}
-          </p>
-        </div>
+  <div
+    className={`w-full max-w-[500px] h-full max-h-[400px] backdrop-blur-sm p-6 rounded-2xl overflow-hidden ${
+      theme === 'dark' ? 'shadow-2xl' : 'shadow-lg'
+    }`}
+    style={{
+      backgroundColor:
+        theme === 'dark'
+          ? 'rgba(255,255,255,0.05)'
+          : 'rgba(255,255,255,0.8)',
+    }}
+  >
+    {/* Title + Buttons row */}
+    <div className="flex justify-between items-center mb-4">
+      <div>
+        <h2
+          className={`text-lg font-bold ${
+            theme === 'dark' ? 'text-white' : 'text-gray-800'
+          }`}
+        >
+          {chartInfo?.title}
+        </h2>
+        <p
+          className={`text-sm ${
+            theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+          }`}
+        >
+          {chartInfo?.description}
+        </p>
+      </div>
 
-        <div className="flex space-x-2">
-         <button
+      <div className="flex space-x-2">
+        <button
           onClick={handleRefresh}
           style={{
-            boxShadow: theme === 'dark' 
-              ? 'inset 0 2px 4px rgba(0,0,0,0.6)' 
-              : 'inset 0 2px 4px rgba(0,0,0,0.2)'
+            boxShadow:
+              theme === 'dark'
+                ? 'inset 0 2px 4px rgba(0,0,0,0.6)'
+                : 'inset 0 2px 6px rgba(0,0,0,0.08)',
           }}
-          className={`px-3 py-1 rounded-md flex items-center space-x-2 
+           className={` rounded-md flex items-center space-x-2  w-8 h-8 p-1   justify-center
             ${theme === 'dark' ? 'bg-rgba(255, 255, 255, 0.8) ' : 'bg-rgba(255, 255, 255, 0.05) '}`}
         >
-          <img 
-            src="https://cdn-icons-png.flaticon.com/128/12797/12797892.png" 
-            alt="refresh" 
-            className="w-4 h-4"
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/12797/12797892.png"
+            alt="refresh"
+           className="w-full h-full object-contain"
           />
         </button>
 
-
-       <button
+        <button
           onClick={handleDownload}
           style={{
-            boxShadow: theme === 'dark' 
-              ? 'inset 0 2px 4px rgba(0,0,0,0.6)' 
-              : 'inset 0 2px 4px rgba(0,0,0,0.2)'
+            boxShadow:
+              theme === 'dark'
+                ? 'inset 0 2px 4px rgba(0,0,0,0.6)'
+                : 'inset 0 2px 6px rgba(0,0,0,0.08)',
           }}
-          className={`px-3 py-1 rounded-md flex items-center space-x-2 
+           className={` rounded-md flex items-center space-x-2  w-8 h-8 p-1  justify-center
             ${theme === 'dark' ? 'bg-rgba(255, 255, 255, 0.8) ' : 'bg-rgba(255, 255, 255, 0.05) '}`}
         >
-        <img 
-          src="https://cdn-icons-png.flaticon.com/128/15604/15604130.png" 
-          alt="download icon" 
-          className="w-4 h-4"
-        />
-      </button>
-
-
-
-        </div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/15604/15604130.png"
+            alt="download icon"
+            className="w-full h-full object-contain"
+          />
+        </button>
       </div>
-
-      {/* Original chart */}
-      <div style={{ height: '300px' }}>
-      <Bar  ref={chartRef} data={chartData} options={options} />
-</div>
-      
     </div>
-  );
+
+    {/* Responsive Chart Wrapper */}
+    <div className="relative w-full h-[80%] overflow-hidden">
+      <Bar ref={chartRef} data={chartData} options={options} />
+    </div>
+  </div>
+);
+
 }

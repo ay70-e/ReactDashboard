@@ -176,7 +176,7 @@ const SettingsPage = () => {
       style={{
             boxShadow: theme === 'dark' 
               ? 'inset 0 2px 4px rgba(0,0,0,0.6)' 
-              : 'inset 0 2px 4px rgba(0,0,0,0.2)'
+              : 'inset 0 2px 4px rgba(255, 105, 180, 0.25)'
           }}
           className={`px-3 py-1 rounded-md flex items-center space-x-2 
             ${theme === 'dark' ? 'bg-rgba(255, 255, 255, 0.8) ' : 'bg-rgba(255, 255, 255, 0.05) '}`}

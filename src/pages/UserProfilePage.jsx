@@ -29,15 +29,19 @@ export default function UserProfilePage() {
   };
 
   return (
-    <div className="flex justify-center  px-4">
-      <div
-        className={`flex flex-col md:flex-row w-full max-w-5xl rounded-2xl shadow-lg overflow-hidden transition-colors duration-300 ${
+    <div className="flex justify-center  ">
+      <div style={{
+            boxShadow: theme === 'dark' 
+              ? 'inset 0 2px 4px rgba(0,0,0,0.6)' 
+              : 'inset 0 2px 6px rgba(255, 105, 180, 0.25)'
+          }}
+        className={`flex flex-col md:flex-row w-full max-w-5xl  overflow-hidden transition-colors duration-300 ${
           theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"
         }`}
       >
         {/* Left Panel */}
         <div
-          className="md:w-1/3 flex flex-col items-center justify-center p-6 bg-pink-50 dark:bg-pink-900"
+          className={`md:w-1/3 flex flex-col items-center  justify-center p-6 ${theme === "dark" ? "bg-[#141E30]" : "bg-[#ffedfe]"}`}
         >
           <img
             src={tempData.avatar}
