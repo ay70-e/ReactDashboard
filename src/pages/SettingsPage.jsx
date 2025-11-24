@@ -50,7 +50,7 @@ const SettingsPage = () => {
             <label className="block text-sm font-medium mb-1">Site Name</label>
             <input
               type="text"
-              defaultValue="Universal Dashboard"
+              defaultValue="Dashboard"
               className={`w-full border rounded-lg px-3 py-2 ${theme === "dark" ? " bg-[#20293b] " : "bg-[#fffbff]"}`}
             />
           </div>
